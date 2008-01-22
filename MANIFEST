@@ -1,3 +1,4 @@
+Changes
 lib/MooseX/App/Cmd.pm
 lib/MooseX/App/Cmd/Command.pm
 Makefile.PL

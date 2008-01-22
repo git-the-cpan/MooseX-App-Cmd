@@ -14,12 +14,13 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 e486169ac15c820a767e55ddcca28b9ed0691b86 MANIFEST
+SHA1 2f6fe49480ea5757ada449edbad3707e079ff93e Changes
+SHA1 fb099e08b36f4b1f4f4f836b487d53ffc39bc4f8 MANIFEST
 SHA1 ddb918d4e02cc06f4b9fe77adeca65403f8fdd56 MANIFEST.SKIP
-SHA1 3f9a917c7e4a7feacd61d83d2e64595e1b670489 META.yml
-SHA1 fd879f10c709a14efcfd0d42dfb96419fa5f7bda Makefile.PL
-SHA1 0f0651cdc86125e0bf95e0fc22c7698278c504bc lib/MooseX/App/Cmd.pm
-SHA1 21acfef99db45e9e2185221220975be554565497 lib/MooseX/App/Cmd/Command.pm
+SHA1 e39296b801b80b2bbd997a6464102c92ee034e19 META.yml
+SHA1 35caef5bd2533bf880ad9ce4971d86628bbe7786 Makefile.PL
+SHA1 2f33a6d47eee44622ed28b84b20209023a90dff0 lib/MooseX/App/Cmd.pm
+SHA1 807016eb212bece3e03705cacdd488caf7d10a41 lib/MooseX/App/Cmd/Command.pm
 SHA1 6fd801b5eb71c402d484782b81d0f4a8379a7f36 t/00-load.t
 SHA1 1a3bb1e03b88246ce23bb22fb8ec11484a9a1fe5 t/basic.t
 SHA1 7c9fb28b6e6d4095bce936e3cc4c7ec2456aca10 t/lib/Test/MyCmd.pm
@@ -29,7 +30,7 @@ SHA1 a0e952beb3dc6eaf2de0b3aefc80fb57a1c6e409 t/lib/Test/MyCmd/Command/stock.pm
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.7 (Darwin)
 
-iD8DBQFHjU8CVCwRwOvSdBgRAhLsAJkB3A7N9wC5vwQW5SBEf+o7xoYiTgCbBmWL
-Vd7ZX2V5y55ghtE7gQqgefM=
-=qc9q
+iD8DBQFHlfrsVCwRwOvSdBgRAnQFAKCMLodgq/jgw/lULVziLqCGish/OQCguQHs
+FStC7wdLwcokYSmi1FgAq80=
+=/FXs
 -----END PGP SIGNATURE-----
