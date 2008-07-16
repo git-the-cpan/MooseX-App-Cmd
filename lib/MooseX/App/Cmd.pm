@@ -1,11 +1,29 @@
 #!/usr/bin/perl
 
 package MooseX::App::Cmd;
+use File::Basename ();
 use Moose;
 
 extends qw(Moose::Object App::Cmd);
 
-our $VERSION = "0.02";
+sub BUILDARGS {
+  my $class = shift;
+  return {} unless @_;
+  return { arg => $_[0] } if @_ == 1;;
+  return { @_ };
+}
+
+sub BUILD {
+  my ($self,$args) = @_;
+
+  my $class = blessed $self;
+  my $arg0 = $0;
+  $self->{arg0}      = File::Basename::basename($arg0);
+  $self->{command}   = $class->_command( {}  );
+  $self->{full_arg0} = $arg0;
+}
+
+our $VERSION = "0.03";
 
 __PACKAGE__;
 
@@ -73,6 +91,14 @@ L<Getopt::Long::Descriptive> spec.
 =head1 AUTHOR
 
 Yuval Kogman E<lt>nothingmuch@woobling.orgE<gt>
+
+With contributions from:
+
+=over 4
+
+=item Guillermo Roditi E<lt>groditi@cpan.orgE<gt>
+
+=back
 
 =head1 COPYRIGHT
 
