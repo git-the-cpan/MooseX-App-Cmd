@@ -17,3 +17,4 @@ t/lib/Test/MyCmd/Command/frobulate.pm
 t/lib/Test/MyCmd/Command/justusage.pm
 t/lib/Test/MyCmd/Command/stock.pm
 META.yml                                 Module meta-data (added by MakeMaker)
+SIGNATURE                                Public-key signature (added by MakeMaker)
