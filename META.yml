@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               MooseX-App-Cmd
-version:            0.05
+version:            0.06
 abstract:           ~
 author:  []
 license:            unknown
@@ -10,7 +10,7 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    App::Cmd:             0
+    App::Cmd:             0.3
     Getopt::Long::Descriptive:  0
     Moose:                0.86
     MooseX::Getopt:       0.18
@@ -19,7 +19,7 @@ no_index:
     directory:
         - t
         - inc
-generated_by:       ExtUtils::MakeMaker version 6.52
+generated_by:       ExtUtils::MakeMaker version 6.55_02
 meta-spec:
     url:      http://module-build.sourceforge.net/META-spec-v1.4.html
     version:  1.4
