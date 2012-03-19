@@ -1,49 +1,60 @@
-#!/usr/bin/perl
+use 5.006;
 
 package MooseX::App::Cmd;
-use File::Basename ();
 use Moose;
+use English '-no_match_vars';
+use File::Basename ();
 
+our $VERSION = '0.09';    # VERSION
+use MooseX::MarkAsMethods autoclean => 1;
 extends qw(Moose::Object App::Cmd);
 
 sub BUILDARGS {
-  my $class = shift;
-  return {} unless @_;
-  return { arg => $_[0] } if @_ == 1;;
-  return { @_ };
+    my ( undef, @arg ) = @_;
+    return {} if !@arg;
+    return { arg => $arg[0] } if @arg == 1;
+    return {@arg};
 }
 
 sub BUILD {
-  my ($self,$args) = @_;
-
-  my $class = blessed $self;
-  my $arg0 = $0;
-  $self->{arg0}      = File::Basename::basename($arg0);
-  $self->{command}   = $class->_command( {}  );
-  $self->{full_arg0} = $arg0;
+    my $self  = shift;
+    my $class = blessed $self;
+    $self->{arg0}      = File::Basename::basename($PROGRAM_NAME);
+    $self->{command}   = $class->_command( {} );
+    $self->{full_arg0} = $PROGRAM_NAME;
+    return;
 }
 
-our $VERSION = "0.08";
+## no critic (Modules::RequireExplicitInclusion)
+__PACKAGE__->meta->make_immutable();
+no Moose;
+1;
 
-__PACKAGE__;
+# ABSTRACT: Mashes up MooseX::Getopt and App::Cmd
 
 __END__
 
 =pod
 
+=for :stopwords Yuval Kogman Guillermo Roditi Daisuke Maki Vladimir Timofeev Bruno Vecchi
+Offer Kaye Mark Gardner Yanick Champoux Infinity Interactive, cpan
+testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto
+metadata placeholders metacpan
+
 =head1 NAME
 
-MooseX::App::Cmd - Mashes up L<MooseX::Getopt> and L<App::Cmd>.
+MooseX::App::Cmd - Mashes up MooseX::Getopt and App::Cmd
+
+=head1 VERSION
+
+version 0.09
 
 =head1 SYNOPSIS
-
-See L<App::Cmd/SYNOPSIS>.
 
     package YourApp::Cmd;
 	use Moose;
 
     extends qw(MooseX::App::Cmd);
-
 
 
     package YourApp::Cmd::Command::blort;
@@ -53,59 +64,199 @@ See L<App::Cmd/SYNOPSIS>.
 
     has blortex => (
         traits => [qw(Getopt)],
-        isa => "Bool",
-        is  => "rw",
-        cmd_aliases   => "X",
-        documentation => "use the blortext algorithm",
+        isa => 'Bool',
+        is  => 'rw',
+        cmd_aliases   => 'X',
+        documentation => 'use the blortext algorithm',
     );
 
     has recheck => (
         traits => [qw(Getopt)],
-        isa => "Bool",
-        is  => "rw",
-        cmd_aliases => "r",
-        documentation => "recheck all results",
+        isa => 'Bool',
+        is  => 'rw',
+        cmd_aliases => 'r',
+        documentation => 'recheck all results',
     );
 
     sub execute {
         my ( $self, $opt, $args ) = @_;
 
         # you may ignore $opt, it's in the attributes anyway
-        
+
         my $result = $self->blortex ? blortex() : blort();
 
         recheck($result) if $self->recheck;
 
         print $result;
-    } 
+    }
 
 =head1 DESCRIPTION
 
-This module marries L<App::Cmd> with L<MooseX::Getopt>.
+This module marries L<App::Cmd|App::Cmd> with L<MooseX::Getopt|MooseX::Getopt>.
 
-Use it like L<App::Cmd> advises (especially see L<App::Cmd::Tutorial>),
-swapping L<App::Cmd::Command> for L<MooseX::App::Cmd::Command>.
+Use it like L<App::Cmd|App::Cmd> advises (especially see
+L<App::Cmd::Tutorial|App::Cmd::Tutorial>), swapping
+L<App::Cmd::Command|App::Cmd::Command> for
+L<MooseX::App::Cmd::Command|MooseX::App::Cmd::Command>.
 
-Then you can write your moose commands as moose classes, with L<MooseX::Getopt>
+Then you can write your moose commands as Moose classes, with
+L<MooseX::Getopt|MooseX::Getopt>
 defining the options for you instead of C<opt_spec> returning a
-L<Getopt::Long::Descriptive> spec.
+L<Getopt::Long::Descriptive|Getopt::Long::Descriptive> spec.
 
-=head1 AUTHOR
+=head1 METHODS
 
-Yuval Kogman E<lt>nothingmuch@woobling.orgE<gt>
+=head2 BUILD
 
-With contributions from:
+After calling C<new> this method is automatically run, setting underlying
+L<App::Cmd|App::Cmd> attributes as per its documentation.
 
-=over 4
+=head1 SEE ALSO
 
-=item Guillermo Roditi E<lt>groditi@cpan.orgE<gt>
+=over
+
+=item L<App::Cmd|App::Cmd>
+
+=item L<App::Cmd::Tutorial|App::Cmd::Tutorial>
+
+=item L<MooseX::Getopt|MooseX::Getopt>
+
+=item L<MooseX::App::Cmd::Command|MooseX::App::Cmd::Command>
 
 =back
 
-=head1 COPYRIGHT
+=head1 SUPPORT
 
-    Copyright (c) 2007-2008 Infinity Interactive, Yuval Kogman. All rights
-    reserved This program is free software; you can redistribute it and/or
-    modify it under the same terms as Perl itself.
+=head2 Perldoc
+
+You can find documentation for this module with the perldoc command.
+
+  perldoc MooseX::App::Cmd
+
+=head2 Websites
+
+The following websites have more information about this module, and may be of help to you. As always,
+in addition to those websites please use your favorite search engine to discover more resources.
+
+=over 4
+
+=item *
+
+Search CPAN
+
+The default CPAN search engine, useful to view POD in HTML format.
+
+L<http://search.cpan.org/dist/MooseX-App-Cmd>
+
+=item *
+
+AnnoCPAN
+
+The AnnoCPAN is a website that allows community annotations of Perl module documentation.
+
+L<http://annocpan.org/dist/MooseX-App-Cmd>
+
+=item *
+
+CPAN Ratings
+
+The CPAN Ratings is a website that allows community ratings and reviews of Perl modules.
+
+L<http://cpanratings.perl.org/d/MooseX-App-Cmd>
+
+=item *
+
+CPANTS
+
+The CPANTS is a website that analyzes the Kwalitee ( code metrics ) of a distribution.
+
+L<http://cpants.perl.org/dist/overview/MooseX-App-Cmd>
+
+=item *
+
+CPAN Testers
+
+The CPAN Testers is a network of smokers who run automated tests on uploaded CPAN distributions.
+
+L<http://www.cpantesters.org/distro/M/MooseX-App-Cmd>
+
+=item *
+
+CPAN Testers Matrix
+
+The CPAN Testers Matrix is a website that provides a visual overview of the test results for a distribution on various Perls/platforms.
+
+L<http://matrix.cpantesters.org/?dist=MooseX-App-Cmd>
+
+=item *
+
+CPAN Testers Dependencies
+
+The CPAN Testers Dependencies is a website that shows a chart of the test results of all dependencies for a distribution.
+
+L<http://deps.cpantesters.org/?module=MooseX::App::Cmd>
+
+=back
+
+=head2 Bugs / Feature Requests
+
+Please report any bugs or feature requests through the web
+interface at L<https://github.com/mjgardner/moosex-app-cmd/issues>. You will be automatically notified of any
+progress on the request by the system.
+
+=head2 Source Code
+
+The code is open to the world, and available for you to hack on. Please feel free to browse it and play
+with it, or whatever. If you want to contribute patches, please send me a diff or prod me to pull
+from your repository :)
+
+L<https://github.com/mjgardner/moosex-app-cmd>
+
+  git clone git://github.com/mjgardner/moosex-app-cmd.git
+
+=head1 AUTHORS
+
+=over 4
+
+=item *
+
+Yuval Kogman <nothingmuch@woobling.org>
+
+=item *
+
+Guillermo Roditi <groditi@cpan.org>
+
+=item *
+
+Daisuke Maki <dmaki@cpan.org>
+
+=item *
+
+Vladimir Timofeev <vovkasm@gmail.com>
+
+=item *
+
+Bruno Vecchi <brunov@cpan.org>
+
+=item *
+
+Offer Kaye <offerk@cpan.org>
+
+=item *
+
+Mark Gardner <mjgardner@cpan.org>
+
+=item *
+
+Yanick Champoux <yanick+cpan@babyl.dyndns.org>
+
+=back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Infinity Interactive, Yuval Kogman.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
