@@ -3,7 +3,7 @@ use 5.006;
 package MooseX::App::Cmd::Command;
 use Moose;
 
-our $VERSION = '0.09';    # VERSION
+our $VERSION = '0.10';    # VERSION
 use Getopt::Long::Descriptive ();
 use MooseX::Has::Options;
 use MooseX::MarkAsMethods autoclean => 1;
@@ -38,13 +38,10 @@ override _process_args => sub {
                 = Getopt::Long::Parser->new( config => ['pass_through'] );
         }
         $opt_parser->getoptions( 'configfile=s' => \$configfile );
-        if ( !defined $configfile ) {
-            my $cfmeta = $class->meta->find_attribute_by_name('configfile');
-            if ( $cfmeta->has_default ) {
-                my $default = $cfmeta->default;
-                $configfile
-                    = ref $default eq 'CODE' ? $default->() : $default;
-            }
+        if ( not defined $configfile
+            and $class->can('_get_default_configfile') )
+        {
+            $configfile = $class->_get_default_configfile();
         }
 
         if ( defined $configfile ) {
@@ -95,7 +92,7 @@ MooseX::App::Cmd::Command - Base class for MooseX::Getopt based App::Cmd::Comman
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 
@@ -259,7 +256,7 @@ Yanick Champoux <yanick+cpan@babyl.dyndns.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Infinity Interactive, Yuval Kogman.
+This software is copyright (c) 2013 by Infinity Interactive, Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

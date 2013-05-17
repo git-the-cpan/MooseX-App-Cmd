@@ -5,7 +5,7 @@ use Moose;
 use English '-no_match_vars';
 use File::Basename ();
 
-our $VERSION = '0.09';    # VERSION
+our $VERSION = '0.10';    # VERSION
 use MooseX::MarkAsMethods autoclean => 1;
 extends qw(Moose::Object App::Cmd);
 
@@ -47,7 +47,7 @@ MooseX::App::Cmd - Mashes up MooseX::Getopt and App::Cmd
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 
@@ -254,7 +254,7 @@ Yanick Champoux <yanick+cpan@babyl.dyndns.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Infinity Interactive, Yuval Kogman.
+This software is copyright (c) 2013 by Infinity Interactive, Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

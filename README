@@ -2,7 +2,7 @@ NAME
     MooseX::App::Cmd - Mashes up MooseX::Getopt and App::Cmd
 
 VERSION
-    version 0.09
+    version 0.10
 
 SYNOPSIS
         package YourApp::Cmd;
@@ -157,7 +157,7 @@ AUTHORS
     *   Yanick Champoux <yanick+cpan@babyl.dyndns.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Infinity Interactive, Yuval
+    This software is copyright (c) 2013 by Infinity Interactive, Yuval
     Kogman.
 
     This is free software; you can redistribute it and/or modify it under
