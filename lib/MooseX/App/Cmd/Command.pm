@@ -3,7 +3,7 @@ use 5.006;
 package MooseX::App::Cmd::Command;
 use Moose;
 
-our $VERSION = '0.10';    # VERSION
+our $VERSION = '0.11';    # VERSION
 use Getopt::Long::Descriptive ();
 use MooseX::Has::Options;
 use MooseX::MarkAsMethods autoclean => 1;
@@ -82,9 +82,9 @@ __END__
 =pod
 
 =for :stopwords Yuval Kogman Guillermo Roditi Daisuke Maki Vladimir Timofeev Bruno Vecchi
-Offer Kaye Mark Gardner Yanick Champoux Infinity Interactive, cpan
-testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto
-metadata placeholders metacpan
+Offer Kaye Mark Gardner Yanick Champoux Dann Ken Crowell Michael Joyce
+Infinity Interactive, cpan testmatrix url annocpan anno bugtracker rt
+cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 NAME
 
@@ -92,7 +92,7 @@ MooseX::App::Cmd::Command - Base class for MooseX::Getopt based App::Cmd::Comman
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 SYNOPSIS
 
@@ -126,6 +126,12 @@ L<MooseX::Getopt|MooseX::Getopt> and the glue to combine the two.
 
 Replaces L<App::Cmd::Command|App::Cmd::Command>'s argument processing in favor
 of L<MooseX::Getopt|MooseX::Getopt> based processing.
+
+If your class does the L<MooseX::ConfigFromFile|MooseX::ConfigFromFile> role
+(or any of its consuming roles like
+L<MooseX::SimpleConfig|MooseX::SimpleConfig>), this will provide an additional
+B<--configfile> command line option for loading options from a configuration
+file.
 
 =head1 SUPPORT
 
@@ -251,6 +257,18 @@ Mark Gardner <mjgardner@cpan.org>
 =item *
 
 Yanick Champoux <yanick+cpan@babyl.dyndns.org>
+
+=item *
+
+Dann <techmemo@gmail.com>
+
+=item *
+
+Ken Crowell <oeuftete@gmail.com>
+
+=item *
+
+Michael Joyce <ubermichael@gmail.com>
 
 =back
 

@@ -5,14 +5,14 @@ use Moose;
 use English '-no_match_vars';
 use File::Basename ();
 
-our $VERSION = '0.10';    # VERSION
+our $VERSION = '0.11';    # VERSION
 use MooseX::MarkAsMethods autoclean => 1;
 extends qw(Moose::Object App::Cmd);
 
 sub BUILDARGS {
     my ( undef, @arg ) = @_;
     return {} if !@arg;
-    return { arg => $arg[0] } if @arg == 1;
+    return { arg => $arg[0] } if 1 == @arg;
     return {@arg};
 }
 
@@ -37,9 +37,9 @@ __END__
 =pod
 
 =for :stopwords Yuval Kogman Guillermo Roditi Daisuke Maki Vladimir Timofeev Bruno Vecchi
-Offer Kaye Mark Gardner Yanick Champoux Infinity Interactive, cpan
-testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto
-metadata placeholders metacpan
+Offer Kaye Mark Gardner Yanick Champoux Dann Ken Crowell Michael Joyce
+Infinity Interactive, cpan testmatrix url annocpan anno bugtracker rt
+cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 NAME
 
@@ -47,12 +47,12 @@ MooseX::App::Cmd - Mashes up MooseX::Getopt and App::Cmd
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 SYNOPSIS
 
     package YourApp::Cmd;
-	use Moose;
+    use Moose;
 
     extends qw(MooseX::App::Cmd);
 
@@ -249,6 +249,18 @@ Mark Gardner <mjgardner@cpan.org>
 =item *
 
 Yanick Champoux <yanick+cpan@babyl.dyndns.org>
+
+=item *
+
+Dann <techmemo@gmail.com>
+
+=item *
+
+Ken Crowell <oeuftete@gmail.com>
+
+=item *
+
+Michael Joyce <ubermichael@gmail.com>
 
 =back
 

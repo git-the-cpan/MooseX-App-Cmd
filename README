@@ -2,11 +2,11 @@ NAME
     MooseX::App::Cmd - Mashes up MooseX::Getopt and App::Cmd
 
 VERSION
-    version 0.10
+    version 0.11
 
 SYNOPSIS
         package YourApp::Cmd;
-            use Moose;
+        use Moose;
 
         extends qw(MooseX::App::Cmd);
 
@@ -155,6 +155,12 @@ AUTHORS
     *   Mark Gardner <mjgardner@cpan.org>
 
     *   Yanick Champoux <yanick+cpan@babyl.dyndns.org>
+
+    *   Dann <techmemo@gmail.com>
+
+    *   Ken Crowell <oeuftete@gmail.com>
+
+    *   Michael Joyce <ubermichael@gmail.com>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2013 by Infinity Interactive, Yuval
