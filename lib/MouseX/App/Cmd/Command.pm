@@ -1,82 +1,16 @@
 use 5.006;
 
-package MooseX::App::Cmd::Command;
-use Any::Moose;
+package MouseX::App::Cmd::Command;
+use Mouse;
 
 our $VERSION = '0.20';    # TRIAL VERSION
-use Getopt::Long::Descriptive ();
 use namespace::clean -except => 'meta';
-extends any_moose('::Object'), 'App::Cmd::Command';
-with any_moose('X::Getopt');
-
-has usage => (
-    is        => 'ro',
-    required  => 1,
-    metaclass => 'NoGetopt',
-    isa       => 'Object',
-);
-
-has app => (
-    is        => 'ro',
-    required  => 1,
-    metaclass => 'NoGetopt',
-    isa       => 'MooseX::App::Cmd',
-);
-
-override _process_args => sub {
-    my ( $class, $args ) = @_;
-    local @ARGV = @{$args};
-
-    my $config_from_file;
-    if ( $class->meta->does_role( any_moose('X::ConfigFromFile') ) ) {
-        local @ARGV = @ARGV;
-
-        my $configfile;
-        my $opt_parser;
-        {
-            ## no critic (Modules::RequireExplicitInclusion)
-            $opt_parser
-                = Getopt::Long::Parser->new( config => ['pass_through'] );
-        }
-        $opt_parser->getoptions( 'configfile=s' => \$configfile );
-        if ( not defined $configfile
-            and $class->can('_get_default_configfile') )
-        {
-            $configfile = $class->_get_default_configfile();
-        }
-
-        if ( defined $configfile ) {
-            $config_from_file = $class->get_config_from_file($configfile);
-        }
-    }
-
-    my %processed = $class->_parse_argv(
-        params => { argv => \@ARGV },
-        options => [ $class->_attrs_to_options($config_from_file) ],
-    );
-
-    return (
-        $processed{params},
-        $processed{argv},
-        usage => $processed{usage},
-
-        # params from CLI are also fields in MooseX::Getopt
-        $config_from_file
-        ? ( %{$config_from_file}, %{ $processed{params} } )
-        : %{ $processed{params} },
-    );
-};
-
-sub _usage_format {    ## no critic (ProhibitUnusedPrivateSubroutines)
-    return shift->usage_desc;
-}
-
-## no critic (Modules::RequireExplicitInclusion)
-__PACKAGE__->meta->make_immutable();
-no Any::Moose;
+extends 'MooseX::App::Cmd::Command';
+__PACKAGE__->meta->make_immutable();   ## no critic (RequireExplicitInclusion)
+no Mouse;
 1;
 
-# ABSTRACT: Base class for MooseX::Getopt based App::Cmd::Commands
+# ABSTRACT: Base class for MouseX::Getopt based App::Cmd::Commands
 
 __END__
 
@@ -89,7 +23,7 @@ cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 NAME
 
-MooseX::App::Cmd::Command - Base class for MooseX::Getopt based App::Cmd::Commands
+MouseX::App::Cmd::Command - Base class for MouseX::Getopt based App::Cmd::Commands
 
 =head1 VERSION
 
@@ -97,12 +31,12 @@ version 0.20
 
 =head1 SYNOPSIS
 
-    use Moose;
+    use Mouse;
 
-    extends qw(MooseX::App::Cmd::Command);
+    extends qw(MouseX::App::Cmd::Command);
 
     # no need to set opt_spec
-    # see MooseX::Getopt for documentation on how to specify options
+    # see MouseX::Getopt for documentation on how to specify options
     has option_field => (
         isa => 'Str',
         is  => 'rw',
@@ -119,20 +53,20 @@ version 0.20
 
 This is a replacement base class for L<App::Cmd::Command|App::Cmd::Command>
 classes that includes
-L<MooseX::Getopt|MooseX::Getopt> and the glue to combine the two.
+L<MouseX::Getopt|MooseX::Getopt> and the glue to combine the two.
 
-=head1 METHODS
+It extends C<MouseX::App::Cmd::Command> which uses
+L<Any::Moose|Any::Moose> to work with either L<Moose|Moose> or
+L<Mouse|Mouse>.  Consult those modules' documentation for full
+usage information.
 
-=head2 _process_args
+=head1 SEE ALSO
 
-Replaces L<App::Cmd::Command|App::Cmd::Command>'s argument processing in favor
-of L<MooseX::Getopt|MooseX::Getopt> based processing.
+=over
 
-If your class does the L<MooseX::ConfigFromFile|MooseX::ConfigFromFile> role
-(or any of its consuming roles like
-L<MooseX::SimpleConfig|MooseX::SimpleConfig>), this will provide an additional
-B<--configfile> command line option for loading options from a configuration
-file.
+=item L<MooseX::App::Cmd::Command|MooseX::App::Cmd::Command>
+
+=back
 
 =head1 SUPPORT
 

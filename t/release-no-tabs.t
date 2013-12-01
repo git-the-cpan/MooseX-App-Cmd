@@ -15,7 +15,10 @@ use warnings;
 use Test::More 0.88;
 use Test::NoTabs;
 
-my @files = ( 'lib/MooseX/App/Cmd.pm', 'lib/MooseX/App/Cmd/Command.pm' );
+my @files = (
+    'lib/MooseX/App/Cmd.pm', 'lib/MooseX/App/Cmd/Command.pm',
+    'lib/MouseX/App/Cmd.pm', 'lib/MouseX/App/Cmd/Command.pm'
+);
 
 notabs_ok($_) foreach @files;
 done_testing;
