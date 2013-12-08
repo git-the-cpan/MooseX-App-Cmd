@@ -28,6 +28,7 @@ my %WriteMakefileArgs = (
     "English" => 0,
     "File::Basename" => 0,
     "Getopt::Long::Descriptive" => "0.091",
+    "MouseX::Getopt" => 0,
     "Test::use::ok" => 0,
     "namespace::clean" => 0
   },
@@ -46,7 +47,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.22",
+  "VERSION" => "0.23",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -66,6 +67,7 @@ my %FallbackPrereqs = (
   "Getopt::Long::Descriptive" => "0.091",
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
+  "MouseX::Getopt" => 0,
   "Scalar::Util" => 0,
   "Test::More" => "0.94",
   "Test::Output" => 0,

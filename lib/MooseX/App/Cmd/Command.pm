@@ -3,7 +3,7 @@ use 5.006;
 package MooseX::App::Cmd::Command;
 use Any::Moose;
 
-our $VERSION = '0.22';    # TRIAL VERSION
+our $VERSION = '0.23';    # TRIAL VERSION
 use Getopt::Long::Descriptive ();
 use namespace::clean -except => 'meta';
 extends any_moose('::Object'), 'App::Cmd::Command';
@@ -93,7 +93,7 @@ MooseX::App::Cmd::Command - Base class for MooseX::Getopt based App::Cmd::Comman
 
 =head1 VERSION
 
-version 0.22
+version 0.23
 
 =head1 SYNOPSIS
 
