@@ -60,9 +60,22 @@
       },
       "develop" : {
          "recommends" : {
-            "Test::EOL" : "0"
+            "Test::CPAN::Meta::JSON" : "0",
+            "Test::DistManifest" : "0",
+            "Test::EOL" : "0",
+            "Test::MinimumVersion" : "0",
+            "Test::Mojibake" : "0",
+            "Test::Perl::Critic" : "0",
+            "Test::Pod::Coverage" : "1.08",
+            "Test::Pod::LinkCheck" : "0",
+            "Test::Portability::Files" : "0",
+            "Test::Synopsis" : "0",
+            "Test::Vars" : "0",
+            "Test::Version" : "0"
          },
          "requires" : {
+            "App::cpanminus" : "0",
+            "App::perlbrew" : "0",
             "Dist::Zilla" : "0",
             "Moose" : "0.86",
             "MooseX::ConfigFromFile" : "0.08",
@@ -105,9 +118,6 @@
          }
       },
       "test" : {
-         "recommends" : {
-            "Test::CPAN::Meta::JSON" : "0"
-         },
          "requires" : {
             "Carp" : "0",
             "Data::Dumper" : "0",
@@ -125,6 +135,24 @@
          }
       }
    },
+   "provides" : {
+      "MooseX::App::Cmd" : {
+         "file" : "lib/MooseX/App/Cmd.pm",
+         "version" : "0.24"
+      },
+      "MooseX::App::Cmd::Command" : {
+         "file" : "lib/MooseX/App/Cmd/Command.pm",
+         "version" : "0.24"
+      },
+      "MouseX::App::Cmd" : {
+         "file" : "lib/MouseX/App/Cmd.pm",
+         "version" : "0.24"
+      },
+      "MouseX::App::Cmd::Command" : {
+         "file" : "lib/MouseX/App/Cmd/Command.pm",
+         "version" : "0.24"
+      }
+   },
    "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
@@ -137,7 +165,7 @@
          "web" : "https://github.com/mjgardner/moosex-app-cmd"
       }
    },
-   "version" : "0.23",
+   "version" : "0.24",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018001"
@@ -235,6 +263,24 @@
             "version" : "0.008"
          },
          {
+            "class" : "Dist::Zilla::Plugin::FinderCode",
+            "name" : "MetaProvides::Package/AUTOVIV/:InstallModulesPM",
+            "version" : "5.006"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::MetaProvides::Package",
+            "config" : {
+               "Dist::Zilla::Plugin::MetaProvides::Package" : {},
+               "Dist::Zilla::Role::MetaProvider::Provider" : {
+                  "inherit_missing" : "1",
+                  "inherit_version" : "1",
+                  "meta_noindex" : "1"
+               }
+            },
+            "name" : "MetaProvides::Package",
+            "version" : "1.15000001"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::Prereqs",
             "config" : {
                "Dist::Zilla::Plugin::Prereqs" : {
@@ -276,17 +322,6 @@
                }
             },
             "name" : "DevelopRecommends",
-            "version" : "5.006"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Prereqs",
-            "config" : {
-               "Dist::Zilla::Plugin::Prereqs" : {
-                  "phase" : "test",
-                  "type" : "recommends"
-               }
-            },
-            "name" : "TestRecommends",
             "version" : "5.006"
          },
          {
@@ -465,9 +500,54 @@
             "version" : "0.01"
          },
          {
+            "class" : "Dist::Zilla::Plugin::Test::Pod::LinkCheck",
+            "name" : "@TestingMania/Test::Pod::LinkCheck",
+            "version" : "1.001"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Test::UnusedVars",
+            "name" : "@TestingMania/Test::UnusedVars",
+            "version" : "2.000005"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Test::CPAN::Changes",
+            "name" : "@TestingMania/Test::CPAN::Changes",
+            "version" : "0.008"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::PodCoverageTests",
+            "name" : "@TestingMania/PodCoverageTests",
+            "version" : "5.006"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::MojibakeTests",
+            "name" : "@TestingMania/MojibakeTests",
+            "version" : "0.5"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::Test::EOL",
             "name" : "@TestingMania/Test::EOL",
             "version" : "0.08"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Test::Synopsis",
+            "name" : "@TestingMania/Test::Synopsis",
+            "version" : "2.000004"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Test::Perl::Critic",
+            "name" : "@TestingMania/Test::Perl::Critic",
+            "version" : "2.112410"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Test::Portability",
+            "name" : "@TestingMania/Test::Portability",
+            "version" : "2.000005"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Test::MinimumVersion",
+            "name" : "@TestingMania/Test::MinimumVersion",
+            "version" : "2.000005"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Compile",
@@ -486,18 +566,13 @@
             "version" : "2.039"
          },
          {
-            "class" : "Dist::Zilla::Plugin::Test::Kwalitee",
-            "name" : "@TestingMania/Test::Kwalitee",
-            "version" : "2.07"
-         },
-         {
             "class" : "Dist::Zilla::Plugin::PodSyntaxTests",
             "name" : "@TestingMania/PodSyntaxTests",
             "version" : "5.006"
          },
          {
-            "class" : "Dist::Zilla::Plugin::PodCoverageTests",
-            "name" : "@TestingMania/PodCoverageTests",
+            "class" : "Dist::Zilla::Plugin::MetaTests",
+            "name" : "@TestingMania/MetaTests",
             "version" : "5.006"
          },
          {
@@ -506,14 +581,9 @@
             "version" : "0.002004"
          },
          {
-            "class" : "Dist::Zilla::Plugin::MetaTests",
-            "name" : "@TestingMania/MetaTests",
-            "version" : "5.006"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Test::Pod::LinkCheck",
-            "name" : "@TestingMania/Test::Pod::LinkCheck",
-            "version" : "1.001"
+            "class" : "Dist::Zilla::Plugin::Test::Kwalitee",
+            "name" : "@TestingMania/Test::Kwalitee",
+            "version" : "2.07"
          },
          {
             "class" : "Dist::Zilla::Plugin::NoTabsTests",
@@ -531,21 +601,6 @@
             "version" : "0.05"
          },
          {
-            "class" : "Dist::Zilla::Plugin::Test::CPAN::Changes",
-            "name" : "@TestingMania/Test::CPAN::Changes",
-            "version" : "0.008"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Test::Perl::Critic",
-            "name" : "@TestingMania/Test::Perl::Critic",
-            "version" : "2.112410"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::MojibakeTests",
-            "name" : "@TestingMania/MojibakeTests",
-            "version" : "0.5"
-         },
-         {
             "class" : "Dist::Zilla::Plugin::Test::DistManifest",
             "name" : "@TestingMania/Test::DistManifest",
             "version" : "2.000004"
@@ -554,26 +609,6 @@
             "class" : "Dist::Zilla::Plugin::Test::CPAN::Meta::JSON",
             "name" : "@TestingMania/Test::CPAN::Meta::JSON",
             "version" : "0.003"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Test::UnusedVars",
-            "name" : "@TestingMania/Test::UnusedVars",
-            "version" : "2.000005"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Test::Portability",
-            "name" : "@TestingMania/Test::Portability",
-            "version" : "2.000005"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Test::MinimumVersion",
-            "name" : "@TestingMania/Test::MinimumVersion",
-            "version" : "2.000005"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Test::Synopsis",
-            "name" : "@TestingMania/Test::Synopsis",
-            "version" : "2.000004"
          },
          {
             "class" : "Dist::Zilla::Plugin::PerlTidy",

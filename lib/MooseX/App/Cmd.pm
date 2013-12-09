@@ -5,7 +5,7 @@ use Any::Moose;
 use English '-no_match_vars';
 use File::Basename ();
 
-our $VERSION = '0.23';    # TRIAL VERSION
+our $VERSION = '0.24';    # TRIAL VERSION
 use namespace::clean -except => 'meta';
 extends any_moose('::Object'), 'App::Cmd';
 
@@ -47,7 +47,7 @@ MooseX::App::Cmd - Mashes up MooseX::Getopt and App::Cmd
 
 =head1 VERSION
 
-version 0.23
+version 0.24
 
 =head1 SYNOPSIS
 
