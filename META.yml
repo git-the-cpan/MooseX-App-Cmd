@@ -50,16 +50,16 @@ optional_features:
 provides:
   MooseX::App::Cmd:
     file: lib/MooseX/App/Cmd.pm
-    version: 0.25
+    version: 0.26
   MooseX::App::Cmd::Command:
     file: lib/MooseX/App/Cmd/Command.pm
-    version: 0.25
+    version: 0.26
   MouseX::App::Cmd:
     file: lib/MouseX/App/Cmd.pm
-    version: 0.25
+    version: 0.26
   MouseX::App::Cmd::Command:
     file: lib/MouseX/App/Cmd/Command.pm
-    version: 0.25
+    version: 0.26
 recommends:
   Moose: 0.86
   MooseX::ConfigFromFile: 0.08
@@ -80,7 +80,7 @@ resources:
   bugtracker: https://github.com/mjgardner/moosex-app-cmd/issues
   homepage: http://metacpan.org/release/MooseX-App-Cmd/
   repository: git://github.com/mjgardner/moosex-app-cmd.git
-version: 0.25
+version: 0.26
 x_Dist_Zilla:
   perl:
     version: 5.018001
@@ -210,7 +210,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::OurPkgVersion
       name: OurPkgVersion
-      version: 0.005000
+      version: 0.005001
     -
       class: Dist::Zilla::Plugin::PodWeaver
       config:
@@ -342,21 +342,21 @@ x_Dist_Zilla:
       name: CheckChangeLog
       version: 0.01
     -
-      class: Dist::Zilla::Plugin::MojibakeTests
-      name: '@TestingMania/MojibakeTests'
-      version: 0.5
+      class: Dist::Zilla::Plugin::Test::ChangesHasContent
+      name: Test::ChangesHasContent
+      version: 0.006
     -
-      class: Dist::Zilla::Plugin::Test::UnusedVars
-      name: '@TestingMania/Test::UnusedVars'
+      class: Dist::Zilla::Plugin::Test::MinimumVersion
+      name: '@TestingMania/Test::MinimumVersion'
       version: 2.000005
     -
-      class: Dist::Zilla::Plugin::Test::EOL
-      name: '@TestingMania/Test::EOL'
-      version: 0.08
+      class: Dist::Zilla::Plugin::Test::Pod::LinkCheck
+      name: '@TestingMania/Test::Pod::LinkCheck'
+      version: 1.001
     -
-      class: Dist::Zilla::Plugin::MetaTests
-      name: '@TestingMania/MetaTests'
-      version: 5.006
+      class: Dist::Zilla::Plugin::Test::Version
+      name: '@TestingMania/Test::Version'
+      version: 0.002004
     -
       class: Dist::Zilla::Plugin::Test::Synopsis
       name: '@TestingMania/Test::Synopsis'
@@ -366,13 +366,15 @@ x_Dist_Zilla:
       name: '@TestingMania/PodCoverageTests'
       version: 5.006
     -
-      class: Dist::Zilla::Plugin::Test::Portability
-      name: '@TestingMania/Test::Portability'
-      version: 2.000005
-    -
-      class: Dist::Zilla::Plugin::Test::CPAN::Meta::JSON
-      name: '@TestingMania/Test::CPAN::Meta::JSON'
-      version: 0.003
+      class: Dist::Zilla::Plugin::NoTabsTests
+      config:
+        Dist::Zilla::Plugin::Test::NoTabs:
+          module_finder:
+            - ':InstallModules'
+          script_finder:
+            - ':ExecFiles'
+      name: '@TestingMania/NoTabsTests'
+      version: 0.06
     -
       class: Dist::Zilla::Plugin::Test::Compile
       config:
@@ -385,47 +387,49 @@ x_Dist_Zilla:
       name: '@TestingMania/Test::Compile'
       version: 2.039
     -
-      class: Dist::Zilla::Plugin::NoTabsTests
-      config:
-        Dist::Zilla::Plugin::Test::NoTabs:
-          module_finder:
-            - ':InstallModules'
-          script_finder:
-            - ':ExecFiles'
-      name: '@TestingMania/NoTabsTests'
-      version: 0.05
-    -
-      class: Dist::Zilla::Plugin::Test::DistManifest
-      name: '@TestingMania/Test::DistManifest'
-      version: 2.000004
-    -
-      class: Dist::Zilla::Plugin::Test::MinimumVersion
-      name: '@TestingMania/Test::MinimumVersion'
-      version: 2.000005
-    -
       class: Dist::Zilla::Plugin::Test::Perl::Critic
       name: '@TestingMania/Test::Perl::Critic'
       version: 2.112410
     -
-      class: Dist::Zilla::Plugin::Test::Kwalitee
-      name: '@TestingMania/Test::Kwalitee'
-      version: 2.07
+      class: Dist::Zilla::Plugin::MojibakeTests
+      name: '@TestingMania/MojibakeTests'
+      version: 0.5
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@TestingMania/PodSyntaxTests'
       version: 5.006
     -
+      class: Dist::Zilla::Plugin::MetaTests
+      name: '@TestingMania/MetaTests'
+      version: 5.006
+    -
+      class: Dist::Zilla::Plugin::Test::Kwalitee
+      name: '@TestingMania/Test::Kwalitee'
+      version: 2.07
+    -
+      class: Dist::Zilla::Plugin::Test::UnusedVars
+      name: '@TestingMania/Test::UnusedVars'
+      version: 2.000005
+    -
+      class: Dist::Zilla::Plugin::Test::Portability
+      name: '@TestingMania/Test::Portability'
+      version: 2.000005
+    -
+      class: Dist::Zilla::Plugin::Test::EOL
+      name: '@TestingMania/Test::EOL'
+      version: 0.08
+    -
+      class: Dist::Zilla::Plugin::Test::CPAN::Meta::JSON
+      name: '@TestingMania/Test::CPAN::Meta::JSON'
+      version: 0.003
+    -
       class: Dist::Zilla::Plugin::Test::CPAN::Changes
       name: '@TestingMania/Test::CPAN::Changes'
       version: 0.008
     -
-      class: Dist::Zilla::Plugin::Test::Pod::LinkCheck
-      name: '@TestingMania/Test::Pod::LinkCheck'
-      version: 1.001
-    -
-      class: Dist::Zilla::Plugin::Test::Version
-      name: '@TestingMania/Test::Version'
-      version: 0.002004
+      class: Dist::Zilla::Plugin::Test::DistManifest
+      name: '@TestingMania/Test::DistManifest'
+      version: 2.000004
     -
       class: Dist::Zilla::Plugin::PerlTidy
       name: PerlTidy

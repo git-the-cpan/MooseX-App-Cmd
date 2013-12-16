@@ -36,6 +36,7 @@ t/lib/Test/MyCmd/Command/justusage.pm
 t/lib/Test/MyCmd/Command/stock.pm
 t/moose.t
 t/mouse.t
+t/release-changes_has_content.t
 t/release-cpan-changes.t
 t/release-dist-manifest.t
 t/release-distmeta.t
