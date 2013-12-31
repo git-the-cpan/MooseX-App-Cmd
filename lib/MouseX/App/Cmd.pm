@@ -3,7 +3,7 @@ use 5.006;
 package MouseX::App::Cmd;
 use Mouse;
 
-our $VERSION = '0.26';    # TRIAL VERSION
+our $VERSION = '0.27';    # VERSION
 use namespace::clean -except => 'meta';
 extends 'MooseX::App::Cmd';
 __PACKAGE__->meta->make_immutable();   ## no critic (RequireExplicitInclusion)
@@ -27,7 +27,7 @@ MouseX::App::Cmd - Mashes up MouseX::Getopt and App::Cmd
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 SYNOPSIS
 
