@@ -4,7 +4,7 @@ NAME
 
 VERSION
 
-    version 0.27
+    version 0.28
 
 SYNOPSIS
 
@@ -180,7 +180,7 @@ AUTHORS
 
 COPYRIGHT AND LICENSE
 
-    This software is copyright (c) 2013 by Infinity Interactive, Yuval
+    This software is copyright (c) 2014 by Infinity Interactive, Yuval
     Kogman.
 
     This is free software; you can redistribute it and/or modify it under

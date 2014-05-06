@@ -13,134 +13,140 @@ author:
   - 'Ken Crowell <oeuftete@gmail.com>'
   - 'Michael Joyce <ubermichael@gmail.com>'
 build_requires:
-  Carp: 0
-  Data::Dumper: 0
-  ExtUtils::MakeMaker: 0
-  File::Spec: 0
-  IO::Handle: 0
-  IPC::Open3: 0
-  Scalar::Util: 0
-  Test::More: 0.94
-  Test::Output: 0
-  YAML: 0
-  base: 0
-  lib: 0
-  strict: 0
-  warnings: 0
+  Carp: '0'
+  Data::Dumper: '0'
+  ExtUtils::MakeMaker: '0'
+  File::Spec: '0'
+  IO::Handle: '0'
+  IPC::Open3: '0'
+  Scalar::Util: '0'
+  Test::More: '0.94'
+  Test::Output: '0'
+  YAML: '0'
+  base: '0'
+  lib: '0'
+  strict: '0'
+  warnings: '0'
 configure_requires:
-  ExtUtils::MakeMaker: 6.30
-dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.008, CPAN::Meta::Converter version 2.133380'
+  ExtUtils::MakeMaker: '6.30'
+dynamic_config: 1
+generated_by: 'Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.141170'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: MooseX-App-Cmd
 optional_features:
   ConfigFromFile:
     description: 'Command line options can be set from a configuration file'
     requires:
-      MouseX::ConfigFromFile: 0
+      MouseX::ConfigFromFile: '0'
   Moose:
     description: 'Support for the Moose postmodern object system'
     requires:
-      Moose: 0.86
-      MooseX::ConfigFromFile: 0.08
-      MooseX::Getopt: 0.18
+      Moose: '0.86'
+      MooseX::ConfigFromFile: '0.08'
+      MooseX::Getopt: '0.18'
+  Mouse:
+    description: 'Support for the Mouse lightweight object system'
+    requires:
+      MouseX::Getopt: '0'
 provides:
   MooseX::App::Cmd:
     file: lib/MooseX/App/Cmd.pm
-    version: 0.27
+    version: '0.28'
   MooseX::App::Cmd::Command:
     file: lib/MooseX/App/Cmd/Command.pm
-    version: 0.27
+    version: '0.28'
   MouseX::App::Cmd:
     file: lib/MouseX/App/Cmd.pm
-    version: 0.27
+    version: '0.28'
   MouseX::App::Cmd::Command:
     file: lib/MouseX/App/Cmd/Command.pm
-    version: 0.27
+    version: '0.28'
 recommends:
-  Moose: 0.86
-  MooseX::ConfigFromFile: 0.08
-  MooseX::Getopt: 0.18
-  MouseX::ConfigFromFile: 0
+  Moose: '0.86'
+  MooseX::ConfigFromFile: '0.08'
+  MooseX::Getopt: '0.18'
+  MouseX::ConfigFromFile: '0'
+  MouseX::Getopt: '0'
 requires:
-  Any::Moose: 0
-  App::Cmd: 0.321
-  App::Cmd::Command: 0
-  English: 0
-  File::Basename: 0
-  Getopt::Long::Descriptive: 0.091
-  MouseX::Getopt: 0
-  Test::use::ok: 0
-  namespace::clean: 0
-  perl: 5.006
+  Any::Moose: '0'
+  App::Cmd: '0.321'
+  App::Cmd::Command: '0'
+  English: '0'
+  File::Basename: '0'
+  Getopt::Long::Descriptive: '0.091'
+  namespace::clean: '0'
+  perl: '5.006'
 resources:
   bugtracker: https://github.com/mjgardner/moosex-app-cmd/issues
   homepage: http://metacpan.org/release/MooseX-App-Cmd/
   repository: git://github.com/mjgardner/moosex-app-cmd.git
-version: 0.27
+version: '0.28'
 x_Dist_Zilla:
   perl:
-    version: 5.018001
+    version: '5.018002'
   plugins:
     -
       class: Dist::Zilla::Plugin::GatherDir
       name: '@Filter/GatherDir'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@Filter/PruneCruft'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::ManifestSkip
       name: '@Filter/ManifestSkip'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: '@Filter/MetaYAML'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::License
       name: '@Filter/License'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::ExtraTests
       name: '@Filter/ExtraTests'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@Filter/ExecDir'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::ShareDir
       name: '@Filter/ShareDir'
-      version: 5.008
-    -
-      class: Dist::Zilla::Plugin::MakeMaker
-      name: '@Filter/MakeMaker'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::Manifest
       name: '@Filter/Manifest'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@Filter/TestRelease'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@Filter/ConfirmRelease'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@Filter/UploadToCPAN'
-      version: 5.008
+      version: '5.015'
+    -
+      class: inc::MooseMouseMakeMaker
+      config:
+        Dist::Zilla::Role::TestRunner:
+          default_jobs: 1
+      name: MooseMouseMakeMaker
+      version: ~
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: AutoPrereqs
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -148,29 +154,70 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: Prereqs
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::OptionalFeature
+      config:
+        Dist::Zilla::Plugin::OptionalFeature:
+          always_recommend: '1'
+          description: 'Command line options can be set from a configuration file'
+          name: ConfigFromFile
+          phase: runtime
+          prereqs:
+            MouseX::ConfigFromFile: '0'
+          require_develop: '1'
+          type: requires
       name: ConfigFromFile
-      version: 0.008
+      version: '0.013'
     -
       class: Dist::Zilla::Plugin::OptionalFeature
+      config:
+        Dist::Zilla::Plugin::OptionalFeature:
+          always_recommend: '1'
+          description: 'Support for the Moose postmodern object system'
+          name: Moose
+          phase: runtime
+          prereqs:
+            Moose: '0.86'
+            MooseX::ConfigFromFile: '0.08'
+            MooseX::Getopt: '0.18'
+          require_develop: '1'
+          type: requires
       name: Moose
-      version: 0.008
+      version: '0.013'
     -
-      class: Dist::Zilla::Plugin::FinderCode
-      name: MetaProvides::Package/AUTOVIV/:InstallModulesPM
-      version: 5.008
+      class: Dist::Zilla::Plugin::OptionalFeature
+      config:
+        Dist::Zilla::Plugin::OptionalFeature:
+          always_recommend: '1'
+          description: 'Support for the Mouse lightweight object system'
+          name: Mouse
+          phase: runtime
+          prereqs:
+            MouseX::Getopt: '0'
+          require_develop: '1'
+          type: requires
+      name: Mouse
+      version: '0.013'
     -
       class: Dist::Zilla::Plugin::MetaProvides::Package
       config:
-        Dist::Zilla::Plugin::MetaProvides::Package: {}
+        Dist::Zilla::Plugin::MetaProvides::Package:
+          finder_objects:
+            -
+              class: Dist::Zilla::Plugin::FinderCode
+              name: MetaProvides::Package/AUTOVIV/:InstallModulesPM
+              version: '5.015'
         Dist::Zilla::Role::MetaProvider::Provider:
-          inherit_missing: 1
-          inherit_version: 1
-          meta_noindex: 1
+          inherit_missing: '1'
+          inherit_version: '1'
+          meta_noindex: '1'
       name: MetaProvides::Package
-      version: 1.15000001
+      version: '2.000001'
+    -
+      class: Dist::Zilla::Plugin::Meta::Dynamic::Config
+      name: Meta::Dynamic::Config
+      version: '0.04'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -178,7 +225,7 @@ x_Dist_Zilla:
           phase: configure
           type: requires
       name: ConfigureRequires
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -186,7 +233,7 @@ x_Dist_Zilla:
           phase: build
           type: requires
       name: BuildRequires
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -194,7 +241,7 @@ x_Dist_Zilla:
           phase: develop
           type: requires
       name: DevelopRequires
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -202,15 +249,15 @@ x_Dist_Zilla:
           phase: develop
           type: recommends
       name: DevelopRecommends
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: NextRelease
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::OurPkgVersion
       name: OurPkgVersion
-      version: 0.005001
+      version: '0.005001'
     -
       class: Dist::Zilla::Plugin::PodWeaver
       config:
@@ -222,187 +269,157 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Plugin::EnsurePod5
               name: '@CorePrep/EnsurePod5'
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Plugin::H1Nester
               name: '@CorePrep/H1Nester'
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Plugin::StopWords
-              name: '-StopWords'
-              version: 1.008
+              name: -StopWords
+              version: '1.008'
             -
               class: Pod::Weaver::Section::Region
               name: ':stopwords'
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Name
               name: Name
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Version
               name: Version
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Region
               name: prelude
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: SYNOPSIS
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: USAGE
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: DESCRIPTION
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: OVERVIEW
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: 'REQUIRED ARGUMENTS'
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: OPTIONS
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Collect
               name: ATTRIBUTES
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Collect
               name: METHODS
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Collect
               name: FUNCTIONS
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Collect
               name: TYPES
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: DIAGNOSTICS
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: 'EXIT STATUS'
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: CONFIGURATION
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: 'CONFIGURATION AND ENVIRONMENT'
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: DEPENDENCIES
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
               name: INCOMPATIBILITIES
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Leftovers
               name: Leftovers
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Region
               name: postlude
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Support
               name: Support
-              version: 1.005
+              version: '1.005'
             -
               class: Pod::Weaver::Section::Authors
               name: Authors
-              version: 4.005
+              version: '4.006'
             -
               class: Pod::Weaver::Section::Legal
               name: Legal
-              version: 4.005
+              version: '4.006'
       name: PodWeaver
-      version: 4.002
+      version: '4.005'
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: MetaConfig
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::CheckChangeLog
       name: CheckChangeLog
-      version: 0.01
+      version: '0.01'
     -
       class: Dist::Zilla::Plugin::Test::ChangesHasContent
       name: Test::ChangesHasContent
-      version: 0.006
-    -
-      class: Dist::Zilla::Plugin::Test::EOL
-      name: '@TestingMania/Test::EOL'
-      version: 0.10
-    -
-      class: Dist::Zilla::Plugin::MojibakeTests
-      name: '@TestingMania/MojibakeTests'
-      version: 0.5
-    -
-      class: Dist::Zilla::Plugin::Test::Portability
-      name: '@TestingMania/Test::Portability'
-      version: 2.000005
-    -
-      class: Dist::Zilla::Plugin::Test::Kwalitee
-      name: '@TestingMania/Test::Kwalitee'
-      version: 2.07
-    -
-      class: Dist::Zilla::Plugin::Test::UnusedVars
-      name: '@TestingMania/Test::UnusedVars'
-      version: 2.000005
-    -
-      class: Dist::Zilla::Plugin::MetaTests
-      name: '@TestingMania/MetaTests'
-      version: 5.008
-    -
-      class: Dist::Zilla::Plugin::Test::CPAN::Changes
-      name: '@TestingMania/Test::CPAN::Changes'
-      version: 0.008
-    -
-      class: Dist::Zilla::Plugin::PodSyntaxTests
-      name: '@TestingMania/PodSyntaxTests'
-      version: 5.008
-    -
-      class: Dist::Zilla::Plugin::Test::DistManifest
-      name: '@TestingMania/Test::DistManifest'
-      version: 2.000004
-    -
-      class: Dist::Zilla::Plugin::Test::MinimumVersion
-      name: '@TestingMania/Test::MinimumVersion'
-      version: 2.000005
-    -
-      class: Dist::Zilla::Plugin::Test::Perl::Critic
-      name: '@TestingMania/Test::Perl::Critic'
-      version: 2.112410
+      version: '0.006'
     -
       class: Dist::Zilla::Plugin::PodCoverageTests
       name: '@TestingMania/PodCoverageTests'
-      version: 5.008
+      version: '5.015'
     -
-      class: Dist::Zilla::Plugin::NoTabsTests
-      config:
-        Dist::Zilla::Plugin::Test::NoTabs:
-          module_finder:
-            - ':InstallModules'
-          script_finder:
-            - ':ExecFiles'
-      name: '@TestingMania/NoTabsTests'
-      version: 0.06
+      class: Dist::Zilla::Plugin::Test::Pod::LinkCheck
+      name: '@TestingMania/Test::Pod::LinkCheck'
+      version: '1.001'
+    -
+      class: Dist::Zilla::Plugin::Test::EOL
+      name: '@TestingMania/Test::EOL'
+      version: '0.12'
+    -
+      class: Dist::Zilla::Plugin::PodSyntaxTests
+      name: '@TestingMania/PodSyntaxTests'
+      version: '5.015'
+    -
+      class: Dist::Zilla::Plugin::Test::UnusedVars
+      name: '@TestingMania/Test::UnusedVars'
+      version: '2.000006'
+    -
+      class: Dist::Zilla::Plugin::Test::CPAN::Changes
+      name: '@TestingMania/Test::CPAN::Changes'
+      version: '0.008'
+    -
+      class: Dist::Zilla::Plugin::MetaTests
+      name: '@TestingMania/MetaTests'
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::Test::Compile
       config:
@@ -413,125 +430,212 @@ x_Dist_Zilla:
           script_finder:
             - ':ExecFiles'
       name: '@TestingMania/Test::Compile'
-      version: 2.039
+      version: '2.040'
+    -
+      class: Dist::Zilla::Plugin::Test::NoTabs
+      config:
+        Dist::Zilla::Plugin::Test::NoTabs:
+          module_finder:
+            - ':InstallModules'
+          script_finder:
+            - ':ExecFiles'
+            - ':TestFiles'
+      name: '@TestingMania/Test::NoTabs'
+      version: '0.07'
+    -
+      class: Dist::Zilla::Plugin::Test::Portability
+      name: '@TestingMania/Test::Portability'
+      version: '2.000005'
+    -
+      class: Dist::Zilla::Plugin::Test::Perl::Critic
+      name: '@TestingMania/Test::Perl::Critic'
+      version: '2.112410'
+    -
+      class: Dist::Zilla::Plugin::Test::DistManifest
+      name: '@TestingMania/Test::DistManifest'
+      version: '2.000004'
     -
       class: Dist::Zilla::Plugin::Test::CPAN::Meta::JSON
       name: '@TestingMania/Test::CPAN::Meta::JSON'
-      version: 0.003
+      version: '0.003'
     -
-      class: Dist::Zilla::Plugin::Test::Version
-      name: '@TestingMania/Test::Version'
-      version: 0.002004
+      class: Dist::Zilla::Plugin::Test::MinimumVersion
+      name: '@TestingMania/Test::MinimumVersion'
+      version: '2.000005'
+    -
+      class: Dist::Zilla::Plugin::Test::Kwalitee
+      name: '@TestingMania/Test::Kwalitee'
+      version: '2.07'
     -
       class: Dist::Zilla::Plugin::Test::Synopsis
       name: '@TestingMania/Test::Synopsis'
-      version: 2.000004
+      version: '2.000004'
     -
-      class: Dist::Zilla::Plugin::Test::Pod::LinkCheck
-      name: '@TestingMania/Test::Pod::LinkCheck'
-      version: 1.001
+      class: Dist::Zilla::Plugin::Test::Version
+      name: '@TestingMania/Test::Version'
+      version: '0.002004'
+    -
+      class: Dist::Zilla::Plugin::MojibakeTests
+      name: '@TestingMania/MojibakeTests'
+      version: '0.5'
     -
       class: Dist::Zilla::Plugin::PerlTidy
       name: PerlTidy
-      version: 0.13
+      version: '0.16'
     -
       class: Dist::Zilla::Plugin::ReadmeAnyFromPod
       name: ReadmeAnyFromPod
-      version: 0.133360
+      version: '0.141120'
     -
       class: Dist::Zilla::Plugin::ReadmeAnyFromPod
       name: ReadmePodInRoot
-      version: 0.133360
+      version: '0.141120'
     -
       class: Dist::Zilla::Plugin::ReportVersions
       name: ReportVersions
-      version: 1.110730
+      version: '1.110730'
     -
       class: Dist::Zilla::Plugin::Test::LocalBrew
       name: Test::LocalBrew
-      version: 0.05
-    -
-      class: Dist::Zilla::Plugin::InstallGuide
-      name: InstallGuide
-      version: 1.200002
+      version: '0.07'
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: MetaJSON
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::Git::Check
+      config:
+        Dist::Zilla::Plugin::Git::Check:
+          untracked_files: die
+        Dist::Zilla::Role::Git::DirtyFiles:
+          allow_dirty:
+            - README.pod
+          allow_dirty_match: []
+          changelog: Changes
+        Dist::Zilla::Role::Git::Repo:
+          repo_root: .
       name: '@Git/Check'
-      version: 2.019
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Git::Commit
+      config:
+        Dist::Zilla::Plugin::Git::Commit:
+          add_files_in: []
+          commit_msg: v%v%n%n%c
+          time_zone: local
+        Dist::Zilla::Role::Git::DirtyFiles:
+          allow_dirty:
+            - README.pod
+          allow_dirty_match: []
+          changelog: Changes
+        Dist::Zilla::Role::Git::Repo:
+          repo_root: .
       name: '@Git/Commit'
-      version: 2.019
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Git::Tag
+      config:
+        Dist::Zilla::Plugin::Git::Tag:
+          branch: ~
+          signed: 0
+          tag: v0.28
+          tag_format: v%v
+          tag_message: v%v
+          time_zone: local
+        Dist::Zilla::Role::Git::Repo:
+          repo_root: .
       name: '@Git/Tag'
-      version: 2.019
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Git::Push
+      config:
+        Dist::Zilla::Plugin::Git::Push:
+          push_to:
+            - origin
+          remotes_must_exist: 1
+        Dist::Zilla::Role::Git::Repo:
+          repo_root: .
       name: '@Git/Push'
-      version: 2.019
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Git::CommitBuild
+      config:
+        Dist::Zilla::Plugin::Git::CommitBuild:
+          branch: ''
+          build_root: ~
+          message: 'Build results of %h (on %b)'
+          multiple_inheritance: 0
+          release_branch: release_build/%b
+          release_message: 'Build results of %h (on %b)'
+        Dist::Zilla::Role::Git::Repo:
+          repo_root: .
       name: Git::CommitBuild
-      version: 2.019
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Git::NextVersion
+      config:
+        Dist::Zilla::Plugin::Git::NextVersion:
+          first_version: '0.001'
+          version_by_branch: '0'
+          version_regexp: (?^:^v(.+)$)
+        Dist::Zilla::Role::Git::Repo:
+          repo_root: .
       name: Git::NextVersion
-      version: 2.019
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::GitHub::Meta
       name: '@GitHub/GitHub::Meta'
-      version: 0.36
+      version: '0.36'
     -
       class: Dist::Zilla::Plugin::GitHub::Update
       name: '@GitHub/GitHub::Update'
-      version: 0.36
+      version: '0.36'
     -
       class: Dist::Zilla::Plugin::GitHub::Meta
       name: GitHub::Meta
-      version: 0.36
+      version: '0.36'
     -
       class: Dist::Zilla::Plugin::InstallRelease
       name: InstallRelease
-      version: 0.008
+      version: '0.008'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':IncModules'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':MainModule'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':AllFiles'
-      version: 5.008
+      version: '5.015'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':NoFiles'
-      version: 5.008
+      version: '5.015'
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: MetaProvides::Package/AUTOVIV/:InstallModulesPM
+      version: '5.015'
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: 0
-    version: 5.008
+      is_trial: '1'
+    version: '5.015'

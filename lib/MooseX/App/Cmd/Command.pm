@@ -3,7 +3,7 @@ use 5.006;
 package MooseX::App::Cmd::Command;
 use Any::Moose;
 
-our $VERSION = '0.27';    # VERSION
+our $VERSION = '0.28';    # TRIAL VERSION
 use Getopt::Long::Descriptive ();
 use namespace::clean -except => 'meta';
 extends any_moose('::Object'), 'App::Cmd::Command';
@@ -93,7 +93,7 @@ MooseX::App::Cmd::Command - Base class for MooseX::Getopt based App::Cmd::Comman
 
 =head1 VERSION
 
-version 0.27
+version 0.28
 
 =head1 SYNOPSIS
 
@@ -275,7 +275,7 @@ Michael Joyce <ubermichael@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Infinity Interactive, Yuval Kogman.
+This software is copyright (c) 2014 by Infinity Interactive, Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

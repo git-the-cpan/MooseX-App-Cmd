@@ -3,7 +3,7 @@ use 5.006;
 package MouseX::App::Cmd::Command;
 use Mouse;
 
-our $VERSION = '0.27';    # VERSION
+our $VERSION = '0.28';    # TRIAL VERSION
 use namespace::clean -except => 'meta';
 extends 'MooseX::App::Cmd::Command';
 __PACKAGE__->meta->make_immutable();   ## no critic (RequireExplicitInclusion)
@@ -27,7 +27,7 @@ MouseX::App::Cmd::Command - Base class for MouseX::Getopt based App::Cmd::Comman
 
 =head1 VERSION
 
-version 0.27
+version 0.28
 
 =head1 SYNOPSIS
 
@@ -209,7 +209,7 @@ Michael Joyce <ubermichael@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Infinity Interactive, Yuval Kogman.
+This software is copyright (c) 2014 by Infinity Interactive, Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
