@@ -3,7 +3,7 @@ use 5.006;
 package MouseX::App::Cmd;
 use Mouse;
 
-our $VERSION = '0.28';    # TRIAL VERSION
+our $VERSION = '0.29';    # VERSION
 use namespace::clean -except => 'meta';
 extends 'MooseX::App::Cmd';
 __PACKAGE__->meta->make_immutable();   ## no critic (RequireExplicitInclusion)
@@ -27,7 +27,7 @@ MouseX::App::Cmd - Mashes up MouseX::Getopt and App::Cmd
 
 =head1 VERSION
 
-version 0.28
+version 0.29
 
 =head1 SYNOPSIS
 
@@ -140,7 +140,7 @@ CPANTS
 
 The CPANTS is a website that analyzes the Kwalitee ( code metrics ) of a distribution.
 
-L<http://cpants.perl.org/dist/overview/MooseX-App-Cmd>
+L<http://cpants.cpanauthors.org/dist/MooseX-App-Cmd>
 
 =item *
 
@@ -171,7 +171,7 @@ L<http://deps.cpantesters.org/?module=MooseX::App::Cmd>
 =head2 Bugs / Feature Requests
 
 Please report any bugs or feature requests through the web
-interface at L<https://github.com/mjgardner/moosex-app-cmd/issues>. You will be automatically notified of any
+interface at L<https://rt.cpan.org/Public/Dist/Display.html?Name=MooseX-App-Cmd>. You will be automatically notified of any
 progress on the request by the system.
 
 =head2 Source Code
@@ -180,9 +180,9 @@ The code is open to the world, and available for you to hack on. Please feel fre
 with it, or whatever. If you want to contribute patches, please send me a diff or prod me to pull
 from your repository :)
 
-L<https://github.com/mjgardner/moosex-app-cmd>
+L<https://github.com/moose/MooseX-App-Cmd>
 
-  git clone git://github.com/mjgardner/moosex-app-cmd.git
+  git clone git://github.com/moose/MooseX-App-Cmd.git
 
 =head1 AUTHORS
 
@@ -236,7 +236,7 @@ Michael Joyce <ubermichael@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Infinity Interactive, Yuval Kogman.
+This software is copyright (c) 2015 by Infinity Interactive, Yuval Kogman.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
