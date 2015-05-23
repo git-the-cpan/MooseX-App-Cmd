@@ -1,5 +1,7 @@
-package MooseX::App::Cmd; # git description: v0.29-35-gc9eedc1
-$MooseX::App::Cmd::VERSION = '0.30';
+package MooseX::App::Cmd; # git description: v0.30-12-g41636f4
+
+our $VERSION = '0.31';
+
 use Moose;
 use English '-no_match_vars';
 use File::Basename ();
@@ -41,7 +43,7 @@ MooseX::App::Cmd - Mashes up MooseX::Getopt and App::Cmd
 
 =head1 VERSION
 
-version 0.30
+version 0.31
 
 =head1 SYNOPSIS
 
@@ -132,7 +134,7 @@ the same terms as the Perl 5 programming language system itself.
 
 =head1 CONTRIBUTORS
 
-=for stopwords Mark Gardner Karen Etheridge Yuval Kogman Graham Knop Daisuke Maki Offer Kaye vovkasm Ken Crowell brunov Guillermo Roditi Dann Michael Joyce
+=for stopwords Mark Gardner Karen Etheridge Graham Knop Daisuke Maki Offer Kaye brunov vovkasm Ken Crowell Michael Joyce Dann Guillermo Roditi
 
 =over 4
 
@@ -142,15 +144,7 @@ Mark Gardner <mjgardner@cpan.org>
 
 =item *
 
-Mark Gardner <gardnerm@gsicommerce.com>
-
-=item *
-
 Karen Etheridge <ether@cpan.org>
-
-=item *
-
-Yuval Kogman <nothingmuch@woobling.org>
 
 =item *
 
@@ -166,6 +160,10 @@ Offer Kaye <offer.kaye@gmail.com>
 
 =item *
 
+brunov <vecchi.b@gmail.com>
+
+=item *
+
 vovkasm <vovkasm@gmail.com>
 
 =item *
@@ -174,15 +172,7 @@ Ken Crowell <oeuftete@gmail.com>
 
 =item *
 
-brunov <vecchi.b@gmail.com>
-
-=item *
-
-Mark Gardner <mjg+github@phoenixtrap.com>
-
-=item *
-
-Guillermo Roditi <groditi@gmail.com>
+Michael Joyce <ubermichael@gmail.com>
 
 =item *
 
@@ -190,7 +180,7 @@ Dann <techmemo@gmail.com>
 
 =item *
 
-Michael Joyce <ubermichael@gmail.com>
+Guillermo Roditi <groditi@gmail.com>
 
 =back
 

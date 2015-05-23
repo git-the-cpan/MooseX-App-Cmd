@@ -1,5 +1,7 @@
 package MooseX::App::Cmd::Command;
-$MooseX::App::Cmd::Command::VERSION = '0.30';
+
+our $VERSION = '0.31';
+
 use Moose;
 use Getopt::Long::Descriptive ();
 use namespace::autoclean;
@@ -86,7 +88,7 @@ MooseX::App::Cmd::Command - Base class for MooseX::Getopt based App::Cmd::Comman
 
 =head1 VERSION
 
-version 0.30
+version 0.31
 
 =head1 SYNOPSIS
 

@@ -2,11 +2,11 @@ use 5.006;
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.051
+# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.052
 
 use Test::More 0.94;
 
-plan tests => 2 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+plan tests => 3;
 
 my @module_files = (
     'MooseX/App/Cmd.pm',
@@ -47,6 +47,6 @@ for my $lib (@module_files)
 
 
 is(scalar(@warnings), 0, 'no warnings found')
-    or diag 'got warnings: ', explain(\@warnings) if $ENV{AUTHOR_TESTING};
+    or diag 'got warnings: ', explain(\@warnings);
 
 BAIL_OUT("Compilation problems") if !Test::More->builder->is_passing;
