@@ -1,6 +1,6 @@
 package MooseX::App::Cmd::Command;
 
-our $VERSION = '0.31';
+our $VERSION = '0.32';
 
 use Moose;
 use Getopt::Long::Descriptive ();
@@ -88,7 +88,7 @@ MooseX::App::Cmd::Command - Base class for MooseX::Getopt based App::Cmd::Comman
 
 =head1 VERSION
 
-version 0.31
+version 0.32
 
 =head1 SYNOPSIS
 
@@ -128,6 +128,17 @@ If your class does the L<MooseX::ConfigFromFile|MooseX::ConfigFromFile> role
 L<MooseX::SimpleConfig|MooseX::SimpleConfig>), this will provide an additional
 C<--configfile> command line option for loading options from a configuration
 file.
+
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=MooseX-App-Cmd>
+(or L<bug-MooseX-App-Cmd@rt.cpan.org|mailto:bug-MooseX-App-Cmd@rt.cpan.org>).
+
+There is also a mailing list available for users of this distribution, at
+http://lists.perl.org/list/moose.html.
+
+There is also an irc channel available for users of this distribution, at
+irc://irc.perl.org/#moose.
 
 =head1 AUTHOR
 

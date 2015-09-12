@@ -1,29 +1,12 @@
-package MooseX::App::Cmd; # git description: v0.30-12-g41636f4
+package MooseX::App::Cmd; # git description: v0.31-7-ge5f0159
 
-our $VERSION = '0.31';
+our $VERSION = '0.32';
 
 use Moose;
-use English '-no_match_vars';
-use File::Basename ();
+use MooseX::NonMoose;
+extends 'App::Cmd';
 
 use namespace::autoclean;
-extends 'Moose::Object', 'App::Cmd';
-
-sub BUILDARGS {
-    my ( undef, @arg ) = @_;
-    return {} if !@arg;
-    return { arg => $arg[0] } if 1 == @arg;
-    return {@arg};
-}
-
-sub BUILD {
-    my $self  = shift;
-    my $class = blessed $self;
-    $self->{arg0}      = File::Basename::basename($PROGRAM_NAME);
-    $self->{command}   = $class->_command( {} );
-    $self->{full_arg0} = $PROGRAM_NAME;
-    return;
-}
 
 ## no critic (Modules::RequireExplicitInclusion)
 __PACKAGE__->meta->make_immutable();
@@ -43,7 +26,7 @@ MooseX::App::Cmd - Mashes up MooseX::Getopt and App::Cmd
 
 =head1 VERSION
 
-version 0.31
+version 0.32
 
 =head1 SYNOPSIS
 
@@ -121,16 +104,20 @@ L<App::Cmd|App::Cmd> attributes as per its documentation.
 
 =back
 
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=MooseX-App-Cmd>
+(or L<bug-MooseX-App-Cmd@rt.cpan.org|mailto:bug-MooseX-App-Cmd@rt.cpan.org>).
+
+There is also a mailing list available for users of this distribution, at
+http://lists.perl.org/list/moose.html.
+
+There is also an irc channel available for users of this distribution, at
+irc://irc.perl.org/#moose.
+
 =head1 AUTHOR
 
 יובל קוג'מן (Yuval Kogman) <nothingmuch@woobling.org>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2008 by Infinity Interactive, Inc..
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
 
 =head1 CONTRIBUTORS
 
@@ -183,5 +170,12 @@ Dann <techmemo@gmail.com>
 Guillermo Roditi <groditi@gmail.com>
 
 =back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2008 by Infinity Interactive, Inc..
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
